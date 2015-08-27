@@ -41,7 +41,7 @@ class VFRackUnitController(object):
             #an error has occured
             raise Exception("The device threw an error: %s" % reply)
         if replyConverter is not None:
-            value = replyConverter(reply)
+            value = replyConverter(reply.strip())
             return value
     
     def _valueQuery(self,command,valueConverter=str):

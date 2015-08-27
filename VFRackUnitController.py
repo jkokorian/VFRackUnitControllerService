@@ -31,7 +31,6 @@ class VFRackUnitController(object):
         
     def _query(self,command,replyConverter=str):
         commandString = "%s\n".encode() % (command)
-        print commandString
         self.serial.write(commandString)
         self.serial.flush()
         

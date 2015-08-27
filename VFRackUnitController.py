@@ -51,7 +51,7 @@ class VFRackUnitController(object):
     @public
     def getValveStates(self):
         command = "VALVES?"
-        valveStates = self._query(command,lambda reply: [bool(int(v)) for v in reply[7:].split()])
+        valveStates = self._query(command,lambda reply: [bool(int(v)) for v in list(reply[7:])])
         valveStatesDict = {valveName: valveState for valveName,valveState in zip(self.valveNames, valveStates)}
         return valveStatesDict
         

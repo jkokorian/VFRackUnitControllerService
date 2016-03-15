@@ -85,16 +85,29 @@ class VFRackUnitController(object):
     def getPureArgonFlowStateSetpoint(self):
         value = self._valueQuery("PAFLOWSP?", float)
         return value
-
+        
+    @public
+    def setPureArgonFlowStateSetpoint(self,value):
+        self._query("PAFLOWSP!%i" % value)
+    
     @public        
     def getPureArgonVentStateSetpoint(self):
         value = self._valueQuery("PAVENTSP?", float)
         return value
 
+    @public
+    def setPureArgonVentStateSetpoint(self,value):
+        self._query("PAVENTSP!%i" % value)
+
+
     @public        
     def getPureArgonPurgeStateSetpoint(self):
-        value = self._valueQuery("PAPURGESP?", float)
+        value = self._valueQuery("PAFLUSHSP?", float)
         return value
+
+    @public
+    def setPureArgonPurgeStateSetpoint(self,value):
+        self._query("PAFLUSHSP!%i" % value)
 
     @public        
     def getPureArgonWorkingSetpoint(self):

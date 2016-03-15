@@ -14,4 +14,5 @@ rpc_client = RPCClient(
 
 remote_server = rpc_client.get_proxy()
 
-print remote_server.gotoStopState()
+remote_server.gotoStopState()
+print remote_server.getState()
